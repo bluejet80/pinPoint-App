@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pin Point App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- Leaflet Library -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+  </head>
+  <body class="p-2">
+    <!-- header -->
+    <div
+      class="flex z-10 justify-start place-items-center bg-cover bg-title-back h-15 w-full p-3"
+    >
+      <div>
+        <h1 class="text-2xl font-chuckfive text-drblue-500 [word-spacing:-5px]">
+          Pin Point
+        </h1>
+
+        <p class="text-sm align-top font-quicksand">App</p>
+      </div>
+      <div><img class="ml-2 w-12" src="./img/pinpoint2.svg" /></div>
+      <div class="w-3/4">
+        <p class="text-md ml-16 font-quicksand text-center">
+          Pin point opportunities for creativity. Click a point on the map.
+        </p>
+      </div>
+    </div>
+    <div id="map" class="z-10 h-80 w-full">map</div>
+    <div class="flex w-full">
+      <div id="list" class="z-10 h-100 w-1/2 bg-emerald-500">
+        <h1 class="m-4 text-center font-chuckfive text-xl text-drblue-500">
+          List of Pins
+        </h1>
+
+        <div class="m-4 p-2 border-4 border-drblue-500 rounded-xl bg-topaz-500">
+          <p class="font-quicksand">
+            Photo:
+            <span class="font-chuckfive text-drblue-500"
+              >4th Street Bridge</span
+            >
+          </p>
+          <p class="font-quicksand">Created September 4th 2023</p>
+        </div>
+        <div class="m-4 p-2 border-4 border-drblue-500 rounded-xl bg-topaz-500">
+          <p class="font-quicksand">
+            Study:
+            <span class="font-chuckfive text-drblue-500"
+              >Makers Coffee Shop</span
+            >
+          </p>
+          <p class="font-quicksand">Created June 13th 2023</p>
+        </div>
+      </div>
+      <div id="details" class="p-5 z-10 h-100 w-1/2 bg-topaz-500">
+        <h1 class="text-center font-chuckfive text-xl text-drblue-500">
+          Details
+        </h1>
+        <hr class="border-drblue-500 border-2" />
+        <p class="font-quicksand">
+          <span class="text-drblue-500 font-chuckfive mr-3">Title:</span>4th
+          Street Bridge
+        </p>
+        <p class="font-quicksand">
+          <span class="text-drblue-500 font-chuckfive mr-3">Description:</span
+          >This is a nice place to take pictures. The way that the elements have
+          stained the cement.
+        </p>
+        <p class="font-quicksand">
+          <span class="text-drblue-500 font-chuckfive mr-3">Direction:</span
+          >Photos looking west accorss the river
+        </p>
+        <p class="font-quicksand">
+          <span class="text-drblue-500 font-chuckfive mr-3">Subjects:</span>The
+          Bridge structure, whereever pieces come together. The river.
+        </p>
+        <p class="font-quicksand">
+          <span class="text-drblue-500 font-chuckfive mr-3">Equipment:</span>A
+          flash might be cool for effect. UV filter if it is sunny.
+        </p>
+      </div>
+    </div>
+    <div class="bg-black w-full h-12 text-center text-white">
+      This is the footer
+    </div>
+
+    <!-- Form Div -->
+    <div
+      class="input-form absolute z-20 left-48 shadow-xl rounded-md top-32 w-80 h-auto bg-forest-500 hidden"
+    >
+      <h1
+        class="relative top-3 font-chuckfive text-center text-2xl text-drblue-500"
+      >
+        Input Form
+      </h1>
+
+      <form class="p-5">
+        <div class="p-4 bg-emerald-500">
+          <label class="font-quicksand mr-6 text-white">Choose a type</label>
+          <select class="font-quicksand input-type p-1">
+            <option value="photo">Photo</option>
+            <option value="resturant">Resturant</option>
+            <option value="study">Study</option>
+          </select>
+        </div>
+        <div class="p-4 bg-kiwi-500">
+          <label class="font-quicksand inline mr-6">Title:</label>
+          <input id="title" placeholder="Title" class="w-3/4 p-1" />
+        </div>
+        <div class="p-2 bg-emerald-500">
+          <label class="font-quicksand mr-6 text-white">Description:</label>
+          <textarea
+            placeholder="Description"
+            class="w-full p-1"
+            rows="4"
+            id="desc"
+          ></textarea>
+        </div>
+        <div class="direct p-2 bg-kiwi-500">
+          <label class="font-quicksand mr-6">Direction:</label>
+          <input
+            id="direct"
+            placeholder="Direction"
+            class="font-quicksand w-1/2 p-1"
+          />
+        </div>
+        <div class="dish p-2 bg-kiwi-500 hidden">
+          <label class="font-quicksand mr-6">Fav Dish:</label>
+          <input
+            id="dish"
+            placeholder="Fav Dish"
+            class="font-quicksand w-1/2 p-1"
+          />
+        </div>
+        <div class="power p-2 bg-kiwi-500 hidden">
+          <label class="font-quicksand mr-6">Power Avial:</label>
+          <input
+            id="power"
+            placeholder="Power Options"
+            class="font-quicksand w-1/2 p-1"
+          />
+        </div>
+        <div class="subject p-2 bg-emerald-500">
+          <label class="font-quicksand mr-6 text-white">Subjects:</label>
+          <input
+            id="subject"
+            placeholder="Subjects"
+            class="font-quicksand w-full p-1"
+          />
+        </div>
+        <div class="cost p-2 bg-emerald-500 hidden">
+          <label class="font-quicksand mr-6 text-white">Cost:</label>
+          <input
+            id="cost"
+            placeholder="Cost"
+            class="font-quicksand w-full p-1"
+          />
+        </div>
+        <div class="hours p-2 bg-emerald-500 hidden">
+          <label class="font-quicksand mr-6 text-white">Hours:</label>
+          <input
+            id="hours"
+            placeholder="Hours"
+            class="font-quicksand w-full p-1"
+          />
+        </div>
+        <div class="equip p-2 bg-kiwi-500">
+          <label class="font-quicksand m-6">Equipment:</label>
+          <input
+            id="equip"
+            placeholder="Equipment"
+            class="font-quicksand w-7/12 p-1"
+          />
+        </div>
+        <div class="light p-2 bg-kiwi-500 hidden">
+          <label class="font-quicksand m-6">Lighting:</label>
+          <input
+            id="light"
+            placeholder="Lighting"
+            class="font-quicksand w-7/12 p-1"
+          />
+        </div>
+        <div class="text-center">
+          <button class="font-quicksand mt-3 border-2 rounded-md p-3 form__btn">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Chuckfive";
+  src: url("./fonts/chuckfive/chunkfive-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("./fonts/quicksand/quicksand-regular-webfont.woff");
+}
