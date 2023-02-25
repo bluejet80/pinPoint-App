@@ -19,6 +19,15 @@ module.exports = {
         kiwi: {
           500: "#C7F9CC",
         },
+        photo: {
+          500: "var(--list-blue)",
+        },
+        rest: {
+          500: "var(--list-green)",
+        },
+        study: {
+          500: "var(--list-orange)",
+        },
       },
       fontFamily: {
         chuckfive: ["Chuckfive", "sans-serif"],

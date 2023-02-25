@@ -11,3 +11,40 @@
   font-family: "Quicksand";
   src: url("./fonts/quicksand/quicksand-regular-webfont.woff");
 }
+
+:root {
+  --popup-green: #33ff66;
+  --popup-blue: #0099ff;
+  --popup-orange: #ff9900;
+  --list-green: #76fc97;
+  --list-blue: #85ccfc;
+  --list-orange: #fac371;
+}
+
+.Photo-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-blue);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.Resturant-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-green);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.Study-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-orange);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.leaflet-popup-content {
+  font-family: quicksand;
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}

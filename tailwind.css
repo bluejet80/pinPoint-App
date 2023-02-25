@@ -513,10 +513,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .absolute {
   position: absolute;
 }
@@ -525,32 +521,16 @@ video {
   position: relative;
 }
 
-.left-56 {
-  left: 14rem;
-}
-
-.top-32 {
-  top: 8rem;
-}
-
 .left-48 {
   left: 12rem;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
-.bottom-3 {
-  bottom: 0.75rem;
-}
-
-.top-5 {
-  top: 1.25rem;
-}
-
 .top-3 {
   top: 0.75rem;
+}
+
+.top-32 {
+  top: 8rem;
 }
 
 .z-10 {
@@ -561,8 +541,8 @@ video {
   z-index: 20;
 }
 
-.m-5 {
-  margin: 1.25rem;
+.float-right {
+  float: right;
 }
 
 .m-4 {
@@ -573,25 +553,6 @@ video {
   margin: 1.5rem;
 }
 
-.m-auto {
-  margin: auto;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.mx-32 {
-  margin-left: 8rem;
-  margin-right: 8rem;
-}
-
 .ml-16 {
   margin-left: 4rem;
 }
@@ -600,28 +561,16 @@ video {
   margin-left: 0.5rem;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .mr-6 {
   margin-right: 1.5rem;
 }
 
-.mr-4 {
-  margin-right: 1rem;
-}
-
-.ml-10 {
-  margin-left: 2.5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
 }
 
 .inline {
@@ -630,10 +579,6 @@ video {
 
 .flex {
   display: flex;
-}
-
-.grid {
-  display: grid;
 }
 
 .hidden {
@@ -648,92 +593,52 @@ video {
   height: 3rem;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-80 {
   height: 28rem;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .w-1\/2 {
   width: 50%;
 }
 
-.w-100 {
-  width: 33rem;
-}
-
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.w-80 {
-  width: 28rem;
-}
-
-.w-6 {
-  width: 1.5rem;
-}
-
-.w-20 {
-  width: 5rem;
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-12 {
   width: 3rem;
 }
 
-.w-1\/3 {
-  width: 33.333333%;
+.w-3\/4 {
+  width: 75%;
 }
 
 .w-7\/12 {
   width: 58.333333%;
 }
 
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+.w-80 {
+  width: 28rem;
 }
 
-.flex-col {
-  flex-direction: column;
+.w-full {
+  width: 100%;
 }
 
 .place-items-center {
   place-items: center;
 }
 
-.content-center {
-  align-content: center;
-}
-
-.items-center {
-  align-items: center;
-}
-
 .justify-start {
   justify-content: flex-start;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.justify-items-center {
-  justify-items: center;
-}
-
-.rounded {
-  border-radius: 0.25rem;
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .rounded-md {
@@ -757,11 +662,6 @@ video {
   border-color: rgb(34 87 122 / var(--tw-border-opacity));
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -777,14 +677,31 @@ video {
   background-color: rgb(128 237 153 / var(--tw-bg-opacity));
 }
 
+.bg-kiwi-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(199 249 204 / var(--tw-bg-opacity));
+}
+
+.bg-photo-500 {
+  background-color: var(--list-blue);
+}
+
+.bg-rest-500 {
+  background-color: var(--list-green);
+}
+
+.bg-study-500 {
+  background-color: var(--list-orange);
+}
+
 .bg-topaz-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(56 163 165 / var(--tw-bg-opacity));
 }
 
-.bg-kiwi-500 {
+.bg-gray-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(199 249 204 / var(--tw-bg-opacity));
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-title-back {
@@ -793,6 +710,10 @@ video {
 
 .bg-cover {
   background-size: cover;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-2 {
@@ -807,16 +728,8 @@ video {
   padding: 1rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
 .p-5 {
   padding: 1.25rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
 }
 
 .text-center {
@@ -860,11 +773,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -873,38 +781,6 @@ video {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.transition-opacity {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-75 {
-  transition-duration: 75ms;
-}
-
-.duration-150 {
-  transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
 }
 
 .\[word-spacing\:-5px\] {
@@ -921,4 +797,41 @@ video {
   font-family: "Quicksand";
 
   src: url("./fonts/quicksand/quicksand-regular-webfont.woff");
+}
+
+:root {
+  --popup-green: #33ff66;
+  --popup-blue: #0099ff;
+  --popup-orange: #ff9900;
+  --list-green: #76fc97;
+  --list-blue: #85ccfc;
+  --list-orange: #fac371;
+}
+
+.Photo-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-blue);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.Resturant-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-green);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.Study-popup .leaflet-popup-content-wrapper {
+  border-left: 10px solid var(--popup-orange);
+  font-size: 1rem;
+  width: auto;
+  height: 2rem;
+}
+
+.leaflet-popup-content {
+  font-family: quicksand;
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
 }

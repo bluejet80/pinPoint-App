@@ -133,6 +133,9 @@ class App {
     //prevent reload
     event.preventDefault();
 
+    //validate inputs
+    const inputValidate = (...inputs) => inputs.every((item) => item != "");
+
     //get data from form
 
     const type = inputType.value;
@@ -148,12 +151,18 @@ class App {
       const subject = subjectInput.value;
       const equip = equipInput.value;
 
+      if (!inputValidate(type, title, desc, direct, subject, equip))
+        return alert("Error: All inputs Need to be completed!");
+
       pinpoint = new Photo([lat, lng], title, desc, direct, subject, equip);
     }
 
     if (type === "resturant") {
       const dish = dishInput.value;
       const cost = costInput.value;
+
+      if (!inputValidate(type, title, desc, dish, cost))
+        return alert("Error: All inputs Need to be completed!");
 
       pinpoint = new Resturant([lat, lng], title, desc, dish, cost);
     }
@@ -162,6 +171,9 @@ class App {
       const power = powerInput.value;
       const hours = hoursInput.value;
       const light = lightInput.value;
+
+      if (!inputValidate(type, title, desc, power, hours, light))
+        return alert("Error: All inputs Need to be completed!");
 
       pinpoint = new Study([lat, lng], title, desc, power, hours, light);
     }
@@ -178,6 +190,9 @@ class App {
     // hide form clear values
     this._hideForm();
 
+    // set local storage
+    this._setLocalStorage();
+
     console.log(pinpoint);
   }
 
@@ -190,7 +205,7 @@ class App {
           minWidth: 100,
           autoClose: false,
           closeOnClick: false,
-          // add classname here
+          className: `${pinpoint.type}-popup`,
         })
       )
       .setPopupContent(`${pinpoint.title}`)
@@ -198,22 +213,38 @@ class App {
   }
 
   _renderPinpoint(pinpoint) {
+    const picture = {
+      Photo: "img/camera.svg",
+      Resturant: "img/plate.svg",
+      Study: "img/book.svg",
+    };
+    const color = {
+      Photo: "bg-photo-500",
+      Resturant: "bg-rest-500",
+      Study: "bg-study-500",
+    };
     const html = `
     <div id="${
       pinpoint.id
-    }" class="m-4 p-2 border-4 border-drblue-500 rounded-xl bg-topaz-500">
+    }" class="m-4 p-2 border-4 border-drblue-500 rounded-xl ${
+      color[pinpoint.type]
+    }">
         <p class="font-quicksand">
             ${pinpoint.type}:
             <span class="font-chuckfive text-drblue-500"
-            >${pinpoint.title}</span>
+            >${pinpoint.title}</span><img class="float-right w-10" src="${
+      picture[pinpoint.type]
+    }" />
         </p>
         <p class="font-quicksand">Created ${(pinpoint.date + "").slice(
           4,
           15
         )}</p>
+        
     </div>
     `;
     list.insertAdjacentHTML("beforeend", html);
+    this._displayDetails(pinpoint);
   }
 
   _showPinpoint(e) {
@@ -228,6 +259,9 @@ class App {
         duration: 1,
       },
     });
+    this._displayDetails(pinData);
+  }
+  _displayDetails(object) {
     let html = `
         <h1 class="text-center font-chuckfive text-xl text-drblue-500">
           Details
@@ -235,51 +269,54 @@ class App {
         <hr class="border-drblue-500 border-2" />
         <p class="font-quicksand">
           <span class="text-drblue-500 font-chuckfive mr-3">Title:</span>
-          ${pinData.title}
+          ${object.title}
         </p>
         <p class="font-quicksand">
           <span class="text-drblue-500 font-chuckfive mr-3">Description:</span
-          >${[pinData.description]}
+          >${object.description}
         </p>
         
     `;
-    if (pinData.type === "Photo")
+    if (object.type === "Photo")
       html += `
         <p class="font-quicksand">
             <span class="text-drblue-500 font-chuckfive mr-3">Direction:</span
-            >${pinData.direction}
+            >${object.direction}
         </p>
         <p class="font-quicksand">
-            <span class="text-drblue-500 font-chuckfive mr-3">Subjects:</span>${pinData.subject}
+            <span class="text-drblue-500 font-chuckfive mr-3">Subjects:</span>${object.subject}
         </p>
         <p class="font-quicksand">
-            <span class="text-drblue-500 font-chuckfive mr-3">Equipment:</span>${pinData.equip}
+            <span class="text-drblue-500 font-chuckfive mr-3">Equipment:</span>${object.equip}
         </p>
   `;
-    if (pinData.type === "Resturant")
+    if (object.type === "Resturant")
       html += `
         <p class="font-quicksand">
             <span class="text-drblue-500 font-chuckfive mr-3">Fav Dish:</span
-            >${pinData.dish}
+            >${object.dish}
         </p>
         <p class="font-quicksand">
-            <span class="text-drblue-500 font-chuckfive mr-3">Cost:</span>${pinData.cost}
+            <span class="text-drblue-500 font-chuckfive mr-3">Cost:</span>${object.cost}
         </p>
   `;
-    if (pinData.type === "Study")
+    if (object.type === "Study")
       html += `
         <p class="font-quicksand">
             <span class="text-drblue-500 font-chuckfive mr-3">Available Power:</span
-            >${pinData.power}
+            >${object.power}
         </p>
         <p class="font-quicksand">
-            <span class="text-drblue-500 font-chuckfive mr-3">Hours:</span>${pinData.hours}
+            <span class="text-drblue-500 font-chuckfive mr-3">Hours:</span>${object.hours}
         </p>
         <p class="font-quicksand">
-            <span class="text-drblue-500 font-chuckfive mr-3">Lighting:</span>${pinData.light}
+            <span class="text-drblue-500 font-chuckfive mr-3">Lighting:</span>${object.light}
         </p>
   `;
     details.innerHTML = html;
+  }
+  _setLocalStorage() {
+    localStorage.setItem("pinpoints", JSON.stringify(this.#collection));
   }
 }
 
